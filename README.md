@@ -5,3 +5,5 @@ It's a really cool wiki...
 
 Student: Jan Kroezen
 Mentor: Felix Clack
+
+Heroku: [Blocipedia](https://jaykay-blocipedia.herokuapp.com/)
