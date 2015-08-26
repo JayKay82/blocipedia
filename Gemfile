@@ -26,6 +26,7 @@ gem 'haml'
 gem 'erb2haml', group: :development
 gem 'sass-rails', '~> 5.0'
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 
 # Gems for working with JS and JSON
 gem 'uglifier', '>= 1.3.0'
