@@ -23,6 +23,7 @@ end
 
 # Authentication & security
 gem 'devise'
+gem 'figaro', '1.0'
 
 # Gems for markup and styling
 gem 'haml'
