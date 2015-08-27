@@ -27,4 +27,11 @@
         %li.name
           %h1
             = link_to 'Blocipedia', root_path
+      %section.top-bar-section
+        %ul.right
+          - if current_user
+            Hello = current_user.name
+          - else
+            %li
+              = link_to 'Sign Up', new_user_registration_path
     = yield
