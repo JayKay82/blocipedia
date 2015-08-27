@@ -21,6 +21,9 @@ group :development, :test do
   gem 'capybara'
 end
 
+# Authentication & security
+gem 'devise'
+
 # Gems for markup and styling
 gem 'haml'
 gem 'erb2haml', group: :development

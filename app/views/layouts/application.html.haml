@@ -10,4 +10,21 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    - if flash[:notice]
+      %div.alert-box.success{ 'data-alert' => '' }
+        = flash[:notice]
+        %a.close{ href: '#' }&times;
+    - elsif flash[:alert]
+      %div.alert-box.warning{ 'data-alert' => '' }
+        = flash[:alert]
+        %a.close{ href: '#' }&times;
+    - elsif flash[:error]
+      %div.alert-box.alert{ 'data-alert' => '' }
+        = flash[:error]
+        %a.close{ href: '#' }&times;
+    %nav.top-bar{ 'data-topbar' => '', role: 'navigation'}
+      %ul.title-area
+        %li.name
+          %h1
+            = link_to 'Blocipedia', root_path
     = yield
