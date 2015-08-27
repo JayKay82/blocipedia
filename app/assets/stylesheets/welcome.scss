@@ -1,0 +1,30 @@
+// Styles for the Blocipedia welcome page
+.splash {
+  text-align: center;
+}
+
+.name {
+  font-size: 5em;
+  margin-top: 20px;
+}
+
+.logo {
+  font-size: 12em;
+}
+
+.circle {
+  margin: 50px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 12px solid;
+  text-align: center;
+}
+
+.box {
+  border: 6px solid;
+  border-radius: 10px;
+  height: 200px;
+  padding: 15px;
+  margin-bottom: 50px;
+}

@@ -1,5 +1,30 @@
-%h2
-  Welcome to Blocipedia
-%i.fi-cloud
-%p
-  This is the amazing Wiki for you...
+%nav.top-bar{ 'data-topbar' => '', role: 'navigation'}
+  %ul.title-area
+    %li.name
+      %h1
+        = link_to 'Blocipedia', root_path
+%div.row
+  %div.large-12.columns.splash
+    %h2.name
+      Blocipedia
+    %div.circle.show-for-medium-up
+      %i.fi-pencil.logo
+%div.row
+  %div.small-12.medium-6.large-4.columns
+    %div.box
+      %h3
+        An Awesome Wiki
+      %p
+        This is the amazing Wiki for you...
+  %div.small-12.medium-6.large-4.columns
+    %div.box
+      %h3
+        Sign Up Today
+      %p
+        You can sign up for free today to create and collaborate on public wikis.
+  %div.small-12.medium-12.large-4.columns
+    %div.box
+      %h3
+        Go Premium
+      %p
+        Collaborate on large private wikis once you go premium.
