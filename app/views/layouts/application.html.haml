@@ -10,18 +10,6 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - if flash[:notice]
-      %div.alert-box.success{ 'data-alert' => '' }
-        = flash[:notice]
-        %a.close{ href: '#' }&times;
-    - elsif flash[:alert]
-      %div.alert-box.warning{ 'data-alert' => '' }
-        = flash[:alert]
-        %a.close{ href: '#' }&times;
-    - elsif flash[:error]
-      %div.alert-box.alert{ 'data-alert' => '' }
-        = flash[:error]
-        %a.close{ href: '#' }&times;
     %nav.top-bar{ 'data-topbar' => '', role: 'navigation'}
       %ul.title-area
         %li.name
@@ -30,8 +18,25 @@
       %section.top-bar-section
         %ul.right
           - if current_user
-            Hello = current_user.name
+            %li
+              = link_to "#{current_user.name}'s Profile", current_user
+            %li
+              = link_to 'Sign Out', destroy_user_session_path, method: :delete
           - else
             %li
+              = link_to 'Sign In', new_user_session_path
+            %li
               = link_to 'Sign Up', new_user_registration_path
+    - if flash[:notice]
+      %div.alert-box.success{ 'data-alert' => '' }
+        = flash[:notice]
+        %a.close{ href: '#' } &times;
+    - elsif flash[:alert]
+      %div.alert-box.warning{ 'data-alert' => '' }
+        = flash[:alert]
+        %a.close{ href: '#' } &times;
+    - elsif flash[:error]
+      %div.alert-box.alert{ 'data-alert' => '' }
+        = flash[:error]
+        %a.close{ href: '#' } &times;
     = yield

@@ -14,4 +14,13 @@
  *= require_self
  *= require foundation_and_overrides
 */
- @import "foundation-icons";
+@import "foundation-icons";
+
+.splash {
+ text-align: center;
+}
+
+.name {
+ font-size: 5em;
+ margin-top: 20px;
+}
