@@ -1,0 +1,6 @@
+%div.profile
+  %h3.splash
+    = current_user.name
+  %p
+    contributed to
+    = pluralize(current_user.wikis.count, 'wiki')

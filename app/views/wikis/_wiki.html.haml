@@ -1,0 +1,8 @@
+%div.wiki
+  %h3
+    = wiki.title
+  %p
+    = truncate(wiki.body, length: 200)
+  %small
+    created by
+    = link_to wiki.user.name, current_user

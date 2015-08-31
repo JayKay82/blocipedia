@@ -1,0 +1,13 @@
+%div.row
+  %h2.name.splash
+    New Wiki
+  %div.large-12.columns.main
+    = form_for new_wiki do |f|
+      .field
+        = f.label :title
+        = f.text_field :title, placeholder: 'Enter a wiki title...'
+      .field
+        = f.label :body
+        = f.text_area :body, rows: 8, placeholder: 'Enter some text...'
+      .actions
+        = f.submit 'Create Wiki', class: 'button small radius secondary'
