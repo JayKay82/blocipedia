@@ -3,6 +3,9 @@ class WikisController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
   end
 
@@ -22,6 +25,10 @@ class WikisController < ApplicationController
     @wikis ||= Wiki.all
   end
 
+  def wiki
+    @wiki ||= Wiki.find(params[:id])
+  end
+
   def new_wiki
     @wiki ||= Wiki.new
   end
@@ -30,5 +37,5 @@ class WikisController < ApplicationController
     params.require(:wiki).permit(:title, :body)
   end
 
-  helper_method :new_wiki, :wikis
+  helper_method :new_wiki, :wikis, :wiki
 end
