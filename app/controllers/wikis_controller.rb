@@ -31,6 +31,14 @@ class WikisController < ApplicationController
     end
   end
 
+  def destroy
+    if wiki.destroy
+      redirect_to wikis_path, notice: 'Successfully deleted wiki.'
+    else
+      redirect_to wiki, notice: 'Unable to delete wiki. Please try again.'
+    end
+  end
+
   private
 
   def wikis
