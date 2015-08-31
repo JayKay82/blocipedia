@@ -8,6 +8,8 @@
         %small
           created by
           = link_to wiki.user.name, wiki.user
+        %div.right
+          = link_to 'Edit Wiki', edit_wiki_path, class: 'button small radius secondary'
       %p
         = wiki.body
     %div.large-4.columns

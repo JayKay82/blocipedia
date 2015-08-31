@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :update]
-  resources :wikis, except: [:update, :destroy]
+  resources :wikis, except: [:destroy]
 
   authenticated :user do
     root to: 'wikis#index', as: 'authenticated_root'

@@ -5,7 +5,7 @@ RSpec.describe 'Read Wikis', type: :request do
 
   feature %(As a user
             I want to
-            be able to read public wikis) do
+            read wikis) do
     before do
       user_sign_in
       click_link 'New Wiki'

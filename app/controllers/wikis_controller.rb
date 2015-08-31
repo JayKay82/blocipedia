@@ -7,6 +7,7 @@ class WikisController < ApplicationController
   end
 
   def new
+    @wiki = Wiki.new
   end
 
   def create
@@ -16,6 +17,17 @@ class WikisController < ApplicationController
       redirect_to root_path, notice: 'Successfully created a new wiki'
     else
       render :new, error: 'Unable to create a new wiki. Please try again.'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if wiki.update_attributes(wiki_params)
+      redirect_to wiki, notice: 'Wiki successfully updated.'
+    else
+      render :edit, error: 'Unable to update wiki. Please try again.'
     end
   end
 

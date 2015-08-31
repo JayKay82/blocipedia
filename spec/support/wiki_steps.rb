@@ -13,6 +13,11 @@ module WikiSteps
   def complete_wiki_form
     fill_in :wiki_title, with: 'Example Title'
     fill_in :wiki_body, with: 'This is an example body for my example wiki that is supposed to be quite long, bla bla bla.'
-    click_button 'Create Wiki'
+    click_button 'Save Wiki'
+  end
+
+  def complete_wiki_update_form
+    fill_in :wiki_title, with: 'Updated Example Title'
+    click_button 'Save Wiki'
   end
 end
