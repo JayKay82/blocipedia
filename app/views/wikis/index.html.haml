@@ -1,0 +1,9 @@
+%h2.name.splash
+  Public Wikis
+%div.row
+  %div.large-9.columns
+    = render wikis
+    %div.splash
+      = link_to 'New Wiki', new_wiki_path, class: 'button tiny radius secondary'
+  %div.large-3.columns
+    = render 'users/profile'

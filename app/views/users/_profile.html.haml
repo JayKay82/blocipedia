@@ -1,0 +1,10 @@
+%div.profile.splash
+  %p
+    = image_tag(current_user.avatar.profile_partial.url, class: 'avatar-pro-page')
+  %h3
+    = current_user.name
+  %p
+    = current_user.bio
+  %p
+    contributed to
+    = pluralize(current_user.wikis.count, 'wiki')

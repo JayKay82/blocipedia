@@ -1,6 +1,16 @@
 %div.row
-  %div.large-12.columns.splash
-    %h2.name
-      Hi
+  %div.large-12.columns
+    %h2.name.splash
+      About
       = current_user.name
-    =link_to 'Edit Profile', edit_user_registration_path, class: 'button radius secondary'
+    %div.row
+      %div.large-6.columns.splash
+        = image_tag(current_user.avatar.profile_page.url, class: 'avatar-pro-page')
+      %div.large-6.columns
+        %p
+          = current_user.bio
+        %p
+          contributed to
+          = pluralize(current_user.wikis.count, 'wiki')
+    %div.row.splash
+      =link_to 'Edit Profile', edit_user_registration_path, class: 'button radius secondary'

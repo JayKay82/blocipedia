@@ -1,0 +1,10 @@
+%div.wiki
+  %h3
+    = link_to wiki.title, wiki
+  %p
+    = truncate(wiki.body, length: 200)
+  %div.row
+    = image_tag(wiki.user.avatar.tiny.url)
+    %small
+      created by
+      = link_to wiki.user.name, wiki.user
