@@ -10,6 +10,10 @@ module WikiSteps
     click_button 'Log in'
   end
 
+  def upgrade_user_to_premium
+    @user.touch!(:premium_at)
+  end
+
   def complete_wiki_form
     fill_in :wiki_title, with: 'Example Title'
     fill_in :wiki_body, with: 'This is an example body for my example wiki that is supposed to be quite long, bla bla bla.'

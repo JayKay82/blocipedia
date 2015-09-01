@@ -5,4 +5,8 @@ class Wiki < ActiveRecord::Base
   validates :title, presence: true
 
   default_scope { order('created_at DESC') }
+
+  def readable_by?(this_user)
+    (self.private && this_user.premium?) || (self.private == nil)
+  end
 end

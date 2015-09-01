@@ -1,5 +1,5 @@
 %h2.name.splash
-  Public Wikis
+  = (current_user.premium? || current_user.admin?) ? 'All Wikis' : 'Public Wikis'
 %div.row
   %div.large-9.columns
     = render wikis
