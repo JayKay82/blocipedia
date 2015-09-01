@@ -48,6 +48,7 @@ gem 'fog'
 # Miscellaneous gems
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'faker'
 
 # Gems for debugging
 group :development, :test do

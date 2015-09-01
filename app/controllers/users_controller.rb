@@ -13,7 +13,13 @@ class UsersController < ApplicationController
 
   private
 
+  def user
+    @user ||= User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:name,:bio,:avatar)
   end
+
+  helper_method :user
 end

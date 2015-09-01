@@ -2,15 +2,16 @@
   %div.large-12.columns
     %h2.name.splash
       About
-      = current_user.name
+      = user.name
     %div.row
       %div.large-6.columns.splash
-        = image_tag(current_user.avatar.profile_page.url, class: 'avatar-pro-page')
+        = image_tag(user.avatar.profile_page.url, class: 'avatar-pro-page')
       %div.large-6.columns
         %p
-          = current_user.bio
+          = user.bio
         %p
           contributed to
-          = pluralize(current_user.wikis.count, 'wiki')
+          = pluralize(user.wikis.count, 'wiki')
     %div.row.splash
-      =link_to 'Edit Profile', edit_user_registration_path, class: 'button radius secondary'
+      - if user == current_user
+        =link_to 'Edit Profile', edit_user_registration_path, class: 'button radius secondary'
