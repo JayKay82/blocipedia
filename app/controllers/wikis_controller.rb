@@ -4,6 +4,12 @@ class WikisController < ApplicationController
   end
 
   def show
+    if wiki.readable_by?(current_user)
+      @wiki
+    else
+      redirect_to wikis_path, alert: 'Update to Premium in order to view private wikis.'
+      #render nothing: true, status: :not_found
+    end
   end
 
   def new
@@ -42,11 +48,19 @@ class WikisController < ApplicationController
   private
 
   def wikis
-    @wikis ||= Wiki.all
+    if current_user.premium? || current_user.admin?
+      @wikis ||= Wiki.all
+    else
+      @wikis ||= Wiki.where(private: nil)
+    end
   end
 
   def wiki
     @wiki ||= Wiki.find(params[:id])
+    # unless @wiki.readable_by?(current_user)
+    #   redirect_to wikis_path, alert: 'Update to Premium in order to view private wikis.'
+    # end
+    #raise ActiveRecord::RecordNotFound unless @wiki.readable_by?(current_user)
   end
 
   def new_wiki

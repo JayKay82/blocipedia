@@ -8,4 +8,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  def premium?
+    premium_at.present?
+  end
+
+  def admin?
+    %w(
+      admin@example.com
+    ).include?(email)
+  end
+
 end
