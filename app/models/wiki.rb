@@ -10,10 +10,8 @@ class Wiki < ActiveRecord::Base
     (self.private && this_user.premium? && self.user == this_user) || (self.private == nil)
   end
 
-  def downgrade_wikis(user)
-    self.where(user: user).each do |wiki|
-      wiki.private = nil
-      wiki.save
-    end
+  def make_public
+    self.private = nil
+    self.save
   end
 end

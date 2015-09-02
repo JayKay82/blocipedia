@@ -13,6 +13,9 @@ class UsersController < ApplicationController
 
   def downgrade
     if user.update_attributes(premium_at: nil)
+      user.wikis.each do |wiki|
+        wiki.make_public
+      end
       redirect_to current_user, notice: 'You have been downgraded to a standard user.'
     else
       redirect_to current_user, error: 'Unable to downgrade you. Please try again.'
