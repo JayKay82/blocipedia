@@ -7,6 +7,7 @@ RSpec.describe "Delete Wikis", type: :request do
             I want to
             delete wikis) do
     before do
+      create_standard_user
       user_sign_in
       click_link 'New Wiki'
       complete_wiki_form

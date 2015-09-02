@@ -11,6 +11,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def downgrade
+    if user.update_attributes(premium_at: nil)
+      redirect_to current_user, notice: 'You have been downgraded to a standard user.'
+    else
+      redirect_to current_user, error: 'Unable to downgrade you. Please try again.'
+    end
+  end
+
   private
 
   def user

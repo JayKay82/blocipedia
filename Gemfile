@@ -45,6 +45,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
+# Setup payment with Stripe
+gem 'stripe'
+
 # Miscellaneous gems
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc

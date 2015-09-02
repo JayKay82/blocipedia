@@ -5,5 +5,9 @@
   .field
     = f.label :body
     = f.text_area :body, rows: 8, placeholder: 'Enter some text...'
+  - if current_user.premium?
+    .field
+      = f.check_box :private
+      = f.label :private, 'Make wiki private'
   .actions
     = f.submit 'Save Wiki', class: 'button small radius secondary'

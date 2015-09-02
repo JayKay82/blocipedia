@@ -1,0 +1,15 @@
+%div.row
+  %h2.name.splash Upgrade to Premium
+  %div.main
+    - if current_user.premium?
+      %div.splash
+        %h4 You are already a Premium User
+        %p To downgrade to standard user please visit your profile page.
+    - else
+      = form_tag charges_path do
+        %div.splash
+          %h4 You will be charged a one-time £15 fee for your premium upgrade
+          %p To unsubscribe please visit your profile page.
+          %script.stripe-button{"data-amount" => "<haml_loud", "data-key" => "#{@stripe_btn_data[:key]}", :src => "https://checkout.stripe.com/checkout.js"}
+            :cdata
+              @stripe_btn_data[:amount]

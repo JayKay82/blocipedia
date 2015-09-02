@@ -8,7 +8,6 @@ class WikisController < ApplicationController
       @wiki
     else
       redirect_to wikis_path, alert: 'Update to Premium in order to view private wikis.'
-      #render nothing: true, status: :not_found
     end
   end
 
@@ -48,8 +47,14 @@ class WikisController < ApplicationController
   private
 
   def wikis
-    if current_user.premium? || current_user.admin?
+    if current_user.admin?
       @wikis ||= Wiki.all
+    elsif current_user.premium?
+      @wikis = []
+      Wiki.all.each do |wiki|
+        @wikis << wiki if wiki.readable_by?(current_user)
+      end
+      @wikis
     else
       @wikis ||= Wiki.where(private: nil)
     end
@@ -68,7 +73,11 @@ class WikisController < ApplicationController
   end
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    if current_user.premium?
+      params.require(:wiki).permit(:title, :body, :private)
+    else
+      params.require(:wiki).permit(:title, :body)
+    end
   end
 
   helper_method :new_wiki, :wikis, :wiki
