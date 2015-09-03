@@ -8,7 +8,7 @@
         = image_tag(user.avatar.profile_page.url, class: 'avatar-pro-page')
       %div.large-6.columns
         %p
-          = user.bio
+          = current_user.bio ? markdown_to_html(current_user.bio) : current_user.bio
         %p
           contributed to
           = pluralize(user.wikis.count, 'wiki')
@@ -16,6 +16,6 @@
       - if user == current_user
         = link_to 'Edit Profile', edit_user_registration_path, class: 'button radius secondary'
         - if current_user.premium?
-          = link_to 'Downgrade to Standard', downgrade_user_path, method: :patch, data: { confirm: 'Are you sure you want to downgrade to a standard user?'}, class: 'button radius secondary' 
+          = link_to 'Downgrade to Standard', downgrade_user_path, method: :patch, data: { confirm: 'Are you sure you want to downgrade to a standard user?'}, class: 'button radius secondary'
         - else
           = link_to 'Upgrade to Premium', new_charge_path, class: 'button radius secondary'

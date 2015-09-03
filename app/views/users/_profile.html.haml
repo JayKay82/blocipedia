@@ -4,7 +4,7 @@
   %h3
     = current_user.name
   %p
-    = current_user.bio
+    = current_user.bio ? markdown_to_html(current_user.bio) : current_user.bio
   %p
     contributed to
     = pluralize(current_user.wikis.count, 'wiki')

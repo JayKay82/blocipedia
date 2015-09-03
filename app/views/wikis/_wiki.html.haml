@@ -1,8 +1,8 @@
 %div.wiki
   %h3
-    = link_to wiki.title, wiki
+    = link_to markdown_to_html(wiki.title), wiki
   %p
-    = truncate(wiki.body, length: 200)
+    = truncate(markdown_to_html(wiki.body), length: 200)
   %div.row
     = image_tag(wiki.user.avatar.tiny.url)
     %small

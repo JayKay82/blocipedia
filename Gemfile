@@ -28,6 +28,7 @@ gem 'devise'
 gem 'figaro', '1.0'
 
 # Gems for markup and styling
+gem 'redcarpet'
 gem 'haml'
 gem 'erb2haml', group: :development
 gem 'sass-rails', '~> 5.0'
