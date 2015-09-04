@@ -28,7 +28,6 @@ gem 'devise'
 gem 'figaro', '1.0'
 
 # Gems for markup and styling
-gem 'redcarpet'
 gem 'haml'
 gem 'erb2haml', group: :development
 gem 'sass-rails', '~> 5.0'
@@ -48,6 +47,10 @@ gem 'fog'
 
 # Setup payment with Stripe
 gem 'stripe'
+
+# Gem for creating, editing, and reading wikis with markdown
+gem 'redcarpet'
+gem 'epic-editor-rails'
 
 # Miscellaneous gems
 gem 'turbolinks'

@@ -4,7 +4,10 @@
     = f.text_field :title, placeholder: 'Enter a wiki title...'
   .field
     = f.label :body
-    = f.text_area :body, rows: 8, placeholder: 'Enter some text...'
+    %div#epiceditor
+      = f.text_area :body, rows: 8, placeholder: 'Enter some text...'
+      :javascript
+        var editor = new EpicEditor().load();
   - if current_user.admin? || current_user.premium?
     .field
       = f.check_box :private
