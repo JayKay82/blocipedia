@@ -59,7 +59,7 @@ class WikisController < ApplicationController
   end
 
   def wiki
-    @wiki ||= Wiki.find(params[:id])
+    @wiki ||= Wiki.friendly.find(params[:id])
     # unless @wiki.readable_by?(current_user)
     #   redirect_to wikis_path, alert: 'Update to Premium in order to view private wikis.'
     # end

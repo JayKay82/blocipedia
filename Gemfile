@@ -53,6 +53,7 @@ gem 'stripe'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
+gem 'friendly_id', '~> 5.1.0'
 
 # Gems for debugging
 group :development, :test do

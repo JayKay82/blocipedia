@@ -1,5 +1,8 @@
 # A Model for Blocipedia's wikis
 class Wiki < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :user # The user who created this wiki
 
   has_many :collaborations
