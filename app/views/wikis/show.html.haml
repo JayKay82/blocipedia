@@ -1,7 +1,7 @@
 %div.row
   %div.large-12.columns
-    %h2.name.splash
-      = markdown_to_html(wiki.title)
+    %h2
+      = wiki.title
     %div.large-8.columns
       %div.row
         = image_tag(wiki.user.avatar.tiny.url)
@@ -13,5 +13,11 @@
           = link_to 'Delete', wiki, method: :delete, class: 'button tiny radius alert'
       %p
         = markdown_to_html(wiki.body)
+      -if wiki.private?
+        %h3 Collaborators
+        %ul
+          - wiki.collaboration_users.each do |collaborator|
+            %li
+              = collaborator.name
     %div.large-4.columns
       = render 'users/profile'

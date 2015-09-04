@@ -49,14 +49,12 @@ class WikisController < ApplicationController
   def wikis
     if current_user.admin?
       @wikis ||= Wiki.all
-    elsif current_user.premium?
+    else
       @wikis = []
       Wiki.all.each do |wiki|
         @wikis << wiki if wiki.readable_by?(current_user)
       end
       @wikis
-    else
-      @wikis ||= Wiki.where(private: nil)
     end
   end
 
@@ -74,7 +72,7 @@ class WikisController < ApplicationController
 
   def wiki_params
     if current_user.premium?
-      params.require(:wiki).permit(:title, :body, :private)
+      params.require(:wiki).permit(:title, :body, :private, collaboration_user_ids: [])
     else
       params.require(:wiki).permit(:title, :body)
     end

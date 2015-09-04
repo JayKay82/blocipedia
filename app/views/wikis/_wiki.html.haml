@@ -1,6 +1,6 @@
 %div.wiki
   %h3
-    = link_to markdown_to_html(wiki.title), wiki
+    = link_to wiki.title, wiki
   %p
     = truncate(markdown_to_html(wiki.body), length: 200)
   %div.row

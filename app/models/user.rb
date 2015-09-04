@@ -1,6 +1,9 @@
 # Model for Devise User
 class User < ActiveRecord::Base
-  has_many :wikis
+  has_many :wikis # User's personally created wikis
+
+  has_many :collaborations
+  has_many :collaboration_wikis, through: :collaborations, source: :wiki # Wikis the user collaborates on
 
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:

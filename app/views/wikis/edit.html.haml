@@ -3,3 +3,5 @@
     Edit Wiki
   %div.large-12.columns.main
     = render partial: 'form'
+    - if (current_user.admin? || (current_user.premium? && wiki.user == current_user)) && wiki.private?
+      = render partial: 'collaborators/form'

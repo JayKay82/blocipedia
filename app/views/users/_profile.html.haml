@@ -6,5 +6,8 @@
   %p
     = current_user.bio ? markdown_to_html(current_user.bio) : current_user.bio
   %p
-    contributed to
+    created
     = pluralize(current_user.wikis.count, 'wiki')
+  %p
+    contributing to
+    = pluralize(current_user.collaboration_wikis.count, 'wiki')

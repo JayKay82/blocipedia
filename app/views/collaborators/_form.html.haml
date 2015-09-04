@@ -1,0 +1,5 @@
+= form_for wiki do |f|
+  .field
+    = f.collection_select :collaboration_user_ids, User.all, :id, :email, {}, multiple: true
+  .actions
+    = f.submit 'Add', class: 'button radius secondary'
