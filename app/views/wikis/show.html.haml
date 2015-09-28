@@ -10,7 +10,7 @@
           = link_to wiki.user.name, wiki.user
         %div.right
           = link_to 'Edit Wiki', edit_wiki_path, class: 'button tiny radius secondary'
-          = link_to 'Delete', wiki, method: :delete, class: 'button tiny radius alert'
+          = link_to 'Delete', wiki, method: :delete, class: 'button tiny radius alert', id: 'delete-wiki'
       %p
         = markdown_to_html(wiki.body)
       -if wiki.private?

@@ -6,11 +6,11 @@
     = f.label :body
     %div#epiceditor
       = f.text_area :body, rows: 8, placeholder: 'Enter some text...'
-      :javascript
-        var editor = new EpicEditor().load();
+      -# :javascript
+      -#   var editor = new EpicEditor().load();
   - if current_user.admin? || current_user.premium?
     .field
       = f.check_box :private
       = f.label :private, 'Make wiki private'
   .actions
-    = f.submit 'Save Wiki', class: 'button small radius secondary'
+    = f.submit 'Save Wiki', class: 'button small radius secondary', id: 'save-wiki'

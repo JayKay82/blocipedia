@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
@@ -18,3 +19,29 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+// Javascript for tracking events in this app with Blocmetrics
+// Create a namespace for Blocmetrics related code
+var blocmetrics = {};
+
+// Create a report function to make an ajax request with the Blocmetrics API
+blocmetrics.report = function(eventName) {
+  var event = { name: eventName };
+  var request = new XMLHttpRequest();
+  request.open('POST', 'http://localhost:3000/api/events', true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(JSON.stringify(event));
+};
+
+// Listen for click events for wiki save and delete
+$(document).ready(function(){
+  blocmetrics.report('page view');
+  $('#save-wiki').click(function() {
+    console.log('Reporting a wiki save.');
+    blocmetrics.report('save wiki');
+  });
+  $('#delete-wiki').click(function() {
+    console.log('Reporting a wiki delete.');
+    blocmetrics.report('delete wiki');
+  });
+});
