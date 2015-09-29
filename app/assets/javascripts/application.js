@@ -28,7 +28,7 @@ var blocmetrics = {};
 blocmetrics.report = function(eventName) {
   var event = { name: eventName };
   var request = new XMLHttpRequest();
-  request.open('POST', 'http://jaykay-blocmetrics.herokuapp.com/api/events', true);
+  request.open('POST', 'https://jaykay-blocmetrics.herokuapp.com/api/events', true);
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(event));
 };
